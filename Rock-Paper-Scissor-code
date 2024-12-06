@@ -1,0 +1,44 @@
+##Rock, paper and scissor game with python where you choose between rock, paper and scissor also computer chooses and the winner is decided by whoever got to the 5 points first.
+##Copy the code and enjoy in your system.
+CODE :----------------
+
+import random
+
+# Initialize scores
+score_u = 0
+score_c = 0
+
+# Start game loop
+while score_u < 5 and score_c < 5:
+    # Randomly select the computer's move
+    a1 = random.choice(['Rock', 'Paper', 'Scissors'])
+    
+    # Taking input from the user
+    user = input("Choose rock, paper, or scissors: ").lower()
+    
+    # Check if the user input is valid
+    if user not in ['rock', 'paper', 'scissors']:
+        print("Invalid input! Please choose rock, paper, or scissors.")
+        continue
+    
+    # Display the computer's choice
+    print(f"Computer chose: {a1}")
+    
+    # Determine the winner
+    if user == a1.lower():
+        print("It's a tie!")
+    elif (user == 'rock' and a1 == 'Scissors') or (user == 'paper' and a1 == 'Rock') or (user == 'scissors' and a1 == 'Paper'):
+        score_u += 1
+        print("You get a point!")
+    else:
+        score_c += 1
+        print("Computer gets a point!")
+
+    # Display the current score
+    print(f"Your score: {score_u} | Computer's score: {score_c}")
+
+# Determine the overall winner
+if score_u == 5:
+    print("You win the game!")
+else:
+    print("Computer wins the game!")
